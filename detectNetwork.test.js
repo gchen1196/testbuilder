@@ -107,18 +107,23 @@ describe('MasterCard', function() {
   //   http://chaijs.com/api/bdd/
   var expect = chai.expect;
  
-  it('has a prefix of 51 and a length of 16', function() {
-    expect(detectNetwork('5112345678901234')).to.equal('MasterCard');
-  });
+  // it('has a prefix of 51 and a length of 16', function() {
+  //   expect(detectNetwork('5112345678901234')).to.equal('MasterCard');
+  // });
  
-  it('has a prefix of 52 and a length of 16', function() {
-    expect(detectNetwork('5212345678901234')).to.equal('MasterCard');
-  });
+  // it('has a prefix of 52 and a length of 16', function() {
+  //   expect(detectNetwork('5212345678901234')).to.equal('MasterCard');
+  // });
  
-  it('has a prefix of 53 and a length of 16', function() {
-    expect(detectNetwork('5312345678901234')).to.equal('MasterCard');
-  });
+  // it('has a prefix of 53 and a length of 16', function() {
+  //   expect(detectNetwork('5312345678901234')).to.equal('MasterCard');
+  // });
  
+  for (var prefix = 51; prefix <= 53; i++) {
+    it('has a prefix of ' + prefix + ' and a length of 16', function(){
+      expect(detectNetwork((prefix + 32123321234323).toString()).to.equal('MasterCard'));
+    })
+  }
 
   // You can also use should instead of expect, which changes the style
   // slightly. It really doesn't matter which one you use - check out 
