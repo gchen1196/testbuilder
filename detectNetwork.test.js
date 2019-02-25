@@ -216,102 +216,114 @@ describe('Maestro', function() {
   //
   var assert = chai.assert;
 
-  it('has a prefix of 5018 and a length of 12', function(){
-    assert(detectNetwork('501823453212') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 13', function(){
-    assert(detectNetwork('5018234532121') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 14', function(){
-    assert(detectNetwork('50182345321243') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 15', function(){
-    assert(detectNetwork('501823453212432') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 16', function(){
-    assert(detectNetwork('5018234532124325') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 17', function(){
-    assert(detectNetwork('50182345321243253') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 18', function(){
-    assert(detectNetwork('501823453212432539') === 'Maestro');
-  });
-  it('has a prefix of 5018 and a length of 19', function(){
-    assert(detectNetwork('5018234532124325393') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 12', function(){
-    assert(detectNetwork('502023453212') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 13', function(){
-    assert(detectNetwork('5020234532121') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 14', function(){
-    assert(detectNetwork('50202345321243') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 15', function(){
-    assert(detectNetwork('502023453212432') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 16', function(){
-    assert(detectNetwork('5020234532124325') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 17', function(){
-    assert(detectNetwork('50182345321243253') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 18', function(){
-    assert(detectNetwork('502023453212432539') === 'Maestro');
-  });
-  it('has a prefix of 5020 and a length of 19', function(){
-    assert(detectNetwork('5020234532124325393') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 12', function(){
-    assert(detectNetwork('503823453212') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 13', function(){
-    assert(detectNetwork('5038234532121') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 14', function(){
-    assert(detectNetwork('50382345321243') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 15', function(){
-    assert(detectNetwork('503823453212432') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 16', function(){
-    assert(detectNetwork('5038234532124325') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 17', function(){
-    assert(detectNetwork('50382345321243253') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 18', function(){
-    assert(detectNetwork('503823453212432539') === 'Maestro');
-  });
-  it('has a prefix of 5038 and a length of 19', function(){
-    assert(detectNetwork('5038234532124325393') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 12', function(){
-    assert(detectNetwork('630423453212') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 13', function(){
-    assert(detectNetwork('6304234532121') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 14', function(){
-    assert(detectNetwork('63042345321243') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 15', function(){
-    assert(detectNetwork('630423453212432') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 16', function(){
-    assert(detectNetwork('6304234532124325') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 17', function(){
-    assert(detectNetwork('63042345321243253') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 18', function(){
-    assert(detectNetwork('630423453212432539') === 'Maestro');
-  });
-  it('has a prefix of 6304 and a length of 19', function(){
-    assert(detectNetwork('6304234532124325393') === 'Maestro');
-  });
+  var input = '501865476543';
+  for(var length = 12; length <= 19; length++){
+    (function(length){
+      it('has a prefix of 5018 and a length of ' + length, function() {
+        assert(detectNetwork(input) === 'Maestro');
+      })
+    })(input, length);
+    input += '0';
+  }
+
+  // it('has a prefix of 5018 and a length of 12', function(){
+  //   assert(detectNetwork('501823453212') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 13', function(){
+  //   assert(detectNetwork('5018234532121') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 14', function(){
+  //   assert(detectNetwork('50182345321243') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 15', function(){
+  //   assert(detectNetwork('501823453212432') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 16', function(){
+  //   assert(detectNetwork('5018234532124325') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 17', function(){
+  //   assert(detectNetwork('50182345321243253') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 18', function(){
+  //   assert(detectNetwork('501823453212432539') === 'Maestro');
+  // });
+  // it('has a prefix of 5018 and a length of 19', function(){
+  //   assert(detectNetwork('5018234532124325393') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 12', function(){
+  //   assert(detectNetwork('502023453212') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 13', function(){
+  //   assert(detectNetwork('5020234532121') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 14', function(){
+  //   assert(detectNetwork('50202345321243') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 15', function(){
+  //   assert(detectNetwork('502023453212432') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 16', function(){
+  //   assert(detectNetwork('5020234532124325') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 17', function(){
+  //   assert(detectNetwork('50182345321243253') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 18', function(){
+  //   assert(detectNetwork('502023453212432539') === 'Maestro');
+  // });
+  // it('has a prefix of 5020 and a length of 19', function(){
+  //   assert(detectNetwork('5020234532124325393') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 12', function(){
+  //   assert(detectNetwork('503823453212') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 13', function(){
+  //   assert(detectNetwork('5038234532121') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 14', function(){
+  //   assert(detectNetwork('50382345321243') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 15', function(){
+  //   assert(detectNetwork('503823453212432') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 16', function(){
+  //   assert(detectNetwork('5038234532124325') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 17', function(){
+  //   assert(detectNetwork('50382345321243253') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 18', function(){
+  //   assert(detectNetwork('503823453212432539') === 'Maestro');
+  // });
+  // it('has a prefix of 5038 and a length of 19', function(){
+  //   assert(detectNetwork('5038234532124325393') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 12', function(){
+  //   assert(detectNetwork('630423453212') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 13', function(){
+  //   assert(detectNetwork('6304234532121') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 14', function(){
+  //   assert(detectNetwork('63042345321243') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 15', function(){
+  //   assert(detectNetwork('630423453212432') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 16', function(){
+  //   assert(detectNetwork('6304234532124325') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 17', function(){
+  //   assert(detectNetwork('63042345321243253') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 18', function(){
+  //   assert(detectNetwork('630423453212432539') === 'Maestro');
+  // });
+  // it('has a prefix of 6304 and a length of 19', function(){
+  //   assert(detectNetwork('6304234532124325393') === 'Maestro');
+  // });
+
+
 
 });
 
