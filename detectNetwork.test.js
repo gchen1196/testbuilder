@@ -235,6 +235,26 @@ describe('Maestro', function() {
     })(length, input);
     input += '0';
   }
+
+  var input = '503823543231';
+  for(var length = 12; length <= 19; length++) {
+    (function(length, input){
+      it('has a prefix of 5038 and a length of ' + length, function() {
+        assert(detectNetwork(input) === 'Maestro');
+      })
+    })(length, input);
+    input += '0';
+  }
+
+  var input = '630423543231';
+  for(var length = 12; length <= 19; length++) {
+    (function(length, input){
+      it('has a prefix of 6304 and a length of ' + length, function() {
+        assert(detectNetwork(input) === 'Maestro');
+      })
+    })(length, input);
+    input += '0';
+  }
   // it('has a prefix of 5018 and a length of 12', function(){
   //   assert(detectNetwork('501823453212') === 'Maestro');
   // });
