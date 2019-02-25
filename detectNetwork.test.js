@@ -118,11 +118,13 @@ describe('MasterCard', function() {
   // it('has a prefix of 53 and a length of 16', function() {
   //   expect(detectNetwork('5312345678901234')).to.equal('MasterCard');
   // });
- 
-  for (var prefix = 51; prefix <= 53; i++) {
-    it('has a prefix of ' + prefix + ' and a length of 16', function(){
-      expect(detectNetwork((prefix + 32123321234323).toString()).to.equal('MasterCard'));
-    })
+
+  for (var prefix = 51; prefix <= 55; prefix++) {
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(parseInt(prefix) + '12342341345321')).to.equal('MasterCard');
+      })
+    })(prefix)
   }
 
   // You can also use should instead of expect, which changes the style
@@ -133,13 +135,13 @@ describe('MasterCard', function() {
   // these tests to pass using should syntax, refactor your tests to 
   // use either expect or should, but not both. 
   
-  it('has a prefix of 54 and a length of 16', function() {
-    expect(detectNetwork('5412345678901234')).to.equal('MasterCard');
-  });
+  // it('has a prefix of 54 and a length of 16', function() {
+  //   expect(detectNetwork('5412345678901234')).to.equal('MasterCard');
+  // });
  
-  it('has a prefix of 55 and a length of 16', function() {
-    expect(detectNetwork('5512345678901234')).to.equal('MasterCard');
-  })
+  // it('has a prefix of 55 and a length of 16', function() {
+  //   expect(detectNetwork('5512345678901234')).to.equal('MasterCard');
+  // })
  
 });
 
