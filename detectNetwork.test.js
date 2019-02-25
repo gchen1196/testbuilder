@@ -156,42 +156,53 @@ describe('Discover', function() {
   it('has a prefix of 6011 and a length of 19', function() {
     assert(detectNetwork('6011321567754346784') === 'Discover');
   });
-  it('has a prefix of 644 and a length of 16', function() {
-    assert(detectNetwork('6441111111111111') === 'Discover');
-  });
-  it('has a prefix of 644 and a length of 19', function() {
-    assert(detectNetwork('6441111111111111111') === 'Discover');
-  });
-  it('has a prefix of 645 and a length of 16', function() {
-    assert(detectNetwork('6451111111111111') === 'Discover');
-  });
-  it('has a prefix of 646 and a length of 16', function() {
-    assert(detectNetwork('6461111111111111') === 'Discover');
-  });
-  it('has a prefix of 647 and a length of 16', function() {
-    assert(detectNetwork('6471111111111111') === 'Discover');
-  });
-  it('has a prefix of 648 and a length of 16', function() {
-    assert(detectNetwork('6481111111111111') === 'Discover');
-  });
-  it('has a prefix of 649 and a length of 16', function() {
-    assert(detectNetwork('6491111111111111') === 'Discover');
-  });
-  it('has a prefix of 645 and a length of 19', function() {
-    assert(detectNetwork('6451111111111111111') === 'Discover');
-  });
-  it('has a prefix of 646 and a length of 19', function() {
-    assert(detectNetwork('6461111111111111111') === 'Discover');
-  });
-  it('has a prefix of 647 and a length of 19', function() {
-    assert(detectNetwork('6471111111111111111') === 'Discover');
-  });
-  it('has a prefix of 648 and a length of 19', function() {
-    assert(detectNetwork('6481111111111111111') === 'Discover');
-  });
-  it('has a prefix of 649 and a length of 19', function() {
-    assert(detectNetwork('6491111111111111111') === 'Discover');
-  });
+  // it('has a prefix of 644 and a length of 16', function() {
+  //   assert(detectNetwork('6441111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 644 and a length of 19', function() {
+  //   assert(detectNetwork('6441111111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 645 and a length of 16', function() {
+  //   assert(detectNetwork('6451111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 646 and a length of 16', function() {
+  //   assert(detectNetwork('6461111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 647 and a length of 16', function() {
+  //   assert(detectNetwork('6471111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 648 and a length of 16', function() {
+  //   assert(detectNetwork('6481111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 649 and a length of 16', function() {
+  //   assert(detectNetwork('6491111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 645 and a length of 19', function() {
+  //   assert(detectNetwork('6451111111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 646 and a length of 19', function() {
+  //   assert(detectNetwork('6461111111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 647 and a length of 19', function() {
+  //   assert(detectNetwork('6471111111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 648 and a length of 19', function() {
+  //   assert(detectNetwork('6481111111111111111') === 'Discover');
+  // });
+  // it('has a prefix of 649 and a length of 19', function() {
+  //   assert(detectNetwork('6491111111111111111') === 'Discover');
+  // });
+  for (var prefix = 644; prefix <= 649; prefix++){
+    (function(prefix){
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        assert(detectNetwork(parseInt(prefix) + '1232123453213') === 'Discover');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        assert(detectNetwork(parseInt(prefix) + '3452345332355321') === 'Discover');
+      });
+    })(prefix)
+  }
+
   it('has a prefix of 65 and a length of 16', function() {
     assert(detectNetwork('6573234589023457') === 'Discover');
   });
