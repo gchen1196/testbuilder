@@ -218,11 +218,11 @@ describe('Maestro', function() {
 
   var input = '501865476543';
   for(var length = 12; length <= 19; length++){
-    (function(length){
+    (function(length, input){
       it('has a prefix of 5018 and a length of ' + length, function() {
         assert(detectNetwork(input) === 'Maestro');
       })
-    })(input, length);
+    })(length, input);
     input += '0';
   }
 
