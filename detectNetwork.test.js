@@ -446,7 +446,7 @@ describe('China UnionPay', function() {
 })
 
 describe('Switch',function() {
-
+  //use assert to test 
   var assert = chai.assert;
   //test each prefix 
   //taking each prefix and creating 16, 18, 19 digits 
