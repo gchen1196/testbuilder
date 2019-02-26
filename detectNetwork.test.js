@@ -352,7 +352,144 @@ describe('Maestro', function() {
   //   assert(detectNetwork('6304234532124325393') === 'Maestro');
   // });
 
+});
 
+describe('China UnionPay', function() {
+
+  var assert = chai.assert;
+  //start with length 16
+  //go through each prefix combo with 16 digits
+  //after looping through 16 digit combos 
+  //go to 17 digits by adding another digit
+
+  // for (var length = 16; length <= 19; length++) {
+  //   for (var prefix = 624; prefix <= 626; prefix++) {
+  //     var input = String(prefix) + '1234323543543'; //16 digits
+  //     (function(length, prefix, input){
+  //       it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+  //         assert(detectNetwork(input) === 'China UnionPay');
+  //       })
+  //     })(length, prefix, input);
+  //   }
+  //   input += '0';
+  //   //need to add another digit after breaking prefix loop
+  // }
+
+  // for (var length = 16; length <= 19; length++) {
+  //   for (var prefix = 6282; prefix <= 6288; prefix++) {
+  //     var input = String(prefix) + '123432354354'; //16 digits
+  //     (function(length, prefix, input){
+  //       it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+  //         assert(detectNetwork(input) === 'China UnionPay');
+  //       })
+  //     })(length, prefix, input);
+  //   }
+  //   input += '0';
+  //   //need to add another digit after breaking prefix loop
+  // }
+
+  // for (var length = 16; length <= 19; length++) {
+  //   for (var prefix = 622126; prefix <= 622925; prefix++) {
+  //     var input = String(prefix) + '1234323543'; //16 digits
+  //     (function(length, prefix, input){
+  //       it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+  //         assert(detectNetwork(input) === 'China UnionPay');
+  //       })
+  //     })(length, prefix, input);
+  //   }
+  //   input += '0';
+  //   //need to add another digit after breaking prefix loop
+  // }
+
+  //WORKS BUT NOT IN RIGHT ORDER
+  //start with prefix
+  //get length 16 with first prefix combo 
+  //function expression that takes in input, prefix, and length 
+  //must add another 0 to change from 16 digits to 17 digits 
+
+  for (var prefix = 622126; prefix <= 622925; prefix++) {
+    var input = String(prefix) + '1234231234';
+    for (var length = 16; length <= 19; length++) {
+      (function(prefix, input, length) {
+        it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+          assert(detectNetwork(input) === 'China UnionPay');
+        })
+      })(prefix, input, length);
+      input += '0';
+    }
+  }
+
+  for (var prefix = 624; prefix <= 626; prefix++) {
+    var input = String(prefix) + '1231234231423';
+    for (var length = 16; length <= 19; length++) {
+      (function(prefix, input, length) {
+        it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+          assert(detectNetwork(input) === 'China UnionPay');
+        })
+      })(prefix, input, length);
+      input += '0';
+    }
+  }
+
+  for (var prefix = 6282; prefix <= 6288; prefix++) {
+    var input = String(prefix) + '123423123452';
+    for (var length = 16; length <= 19; length++) {
+      (function(prefix, input, length) {
+        it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+          assert(detectNetwork(input) === 'China UnionPay');
+        })
+      })(prefix, input, length);
+      input += '0';
+    }
+  }
+
+})
+
+describe('Switch',function() {
+
+  var assert = chai.assert;
+  //test each prefix 
+  //taking each prefix and creating 16, 18, 19 digits 
+  //use for loop to achieve that
+  //use function express that takes in prefix and input 
+
+  var prefixes = [4903, 4905, 4911, 4936, 564182, 633110, 6333, 6759];
+
+  
+  for (var i = 0; i < prefixes.length; i++) {
+    var prefix = String(prefixes[i]); //'4903'
+    //need to add 12 more digits to prefix and set that to input
+    //use for loop 
+    var input = prefix;
+    for (var j = 0; j < 16 - prefix.length; j++) {
+      input += '0';
+    }
+
+    //input is now 16 digits '4903000000000000' 
+    (function(input, prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        assert(detectNetwork(input) === 'Switch');
+      })
+    })(input, prefix)
+
+    //test for 18 digits
+    input += '00'; //'490300000000000000'
+    (function(input, prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 18', function() {
+        assert(detectNetwork(input) === 'Switch');
+      })
+    })(input, prefix)
+
+    input += '0'; //'4903000000000000000'
+    (function(input, prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        assert(detectNetwork(input) === 'Switch');
+      })
+    })(input, prefix)
+
+  }
 
 });
+
+
 
